@@ -45,7 +45,50 @@ class Saude extends Model
             return "Obsidade III";
         }
     }
-    public function sono(){
+    public function sono($sonomedia){
+        $idade = $_GET["datanascimento"];
+        
+            if ($idade < 3) {
+                if ($sonomedia >= 11 && $sonomedia <= 14){
+                    return "está dormindo corretamente";
+                }
+                return "O adequado a se dormir para você é entre 11 a 14 horas";
+
+            }elseif ($idade <= 5) {
+                if ($sonomedia >= 10 && $sonomedia <= 13){
+                    return "está dormindo corretamente";
+                }
+                return "O adequado a se dormir para você é entre 10 a 13 horas";
+
+            }elseif ($idade <= 13) {
+                if ($sonomedia >= 9 && $sonomedia <= 11){
+                    return "está dormindo corretamente";
+                }
+                 return "O adequado a se dormir para você é entre 9 a 11 horas";
+
+            }elseif ($idade <= 17) {
+                if ($sonomedia >= 8 && $sonomedia <= 10){
+                    return "está dormindo corretamente";
+                }
+                 return "O adequado a se dormir para você é entre 8 a 10 horas";
+
+            }elseif ($idade <= 64) {
+                if ($sonomedia >= 7 && $sonomedia <= 9){
+                    return "está dormindo corretamente";
+                }
+                 return "O adequado a se dormir para você é entre 9 a 11 horas";
+
+            }elseif ($idade >= 65) {
+                if ($sonomedia >= 7 && $sonomedia <= 8){
+                    return "está dormindo corretamente";
+                }
+                 return "O adequado a se dormir para você é entre 9 a 11 horas";
+
+            }
+           
+        
+
+
 
     }
     public function imc() {
@@ -55,6 +98,7 @@ class Saude extends Model
         $valores["altura"] = $_GET["altura"];
         $valores["imc"] = $this->calcula_imc($valores["peso"],$valores["altura"]);
         $valores["classificacaoimc"] = $this->classificacao_imc($valores["imc"]);
+        $valores["sonao"] = $this->sono($valores["idade"]);
         return $valores;
     }
 

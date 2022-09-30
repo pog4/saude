@@ -15,6 +15,7 @@
             <p>Peso: {{$resultadoimc["peso"]}}</p>
             <p>Altura: {{$resultadoimc["altura"]}}</p>
             <p>IMC: {{$resultadoimc["imc"]}} - {{$resultadoimc["classificacaoimc"]}}</p>
+            <p>sono: {{$resultadoimc["sonao"]}}</p>
         </div>
         <a href="{{url('/')}}">Voltar</a>
     </main>
